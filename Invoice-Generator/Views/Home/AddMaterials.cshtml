@@ -1,0 +1,30 @@
+﻿@model Invoice_Generator.Models.Material
+@{
+    ViewData["Title"] = "AddMaterials";
+}
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;900&display=swap" rel="stylesheet">
+
+<div class="pages-1">
+
+    @using (Html.BeginForm("AddMaterials", "Home", FormMethod.Post))
+    {
+        @Html.ValidationSummary()
+            <table>
+                <tr>
+                    <th>
+                        <span>Nazwa materiału:</span>@Html.TextBoxFor(x =>x.Name)
+                    </th>
+                    <th>
+                        <span>Opis(opcjonalnie):</span>@Html.TextBoxFor(x=>x.Description)
+                    </th>
+                    <th>
+                        <span>Cena:</span>@Html.TextBoxFor(x=>x.Price)
+                    </th>
+                </tr>
+            </table>
+
+            <br/>
+            <button class="button-1" type="submit">Wyślij formularz</button>
+    }
+        <p>Zapisane id materiału:</p><strong>@TempData["Materials"]</strong> 
+</div>

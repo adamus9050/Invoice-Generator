@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Invoice_Generator.Models.Material>
+@{
+    ViewData["Title"] = "List";
+}
+
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;900&display=swap" rel="stylesheet">
+
+<h3>Lista materiałów</h3>
+<div class="page-1">
+    <ul>
+        @foreach (Material material in Model)
+        {
+                    <table>
+
+
+                        <tr>
+                            <th>
+                                <li class="page-list1">           
+                            @material.Id -@material.Name -@material.Description -@material.Price
+                            @using (Html.BeginForm("DeleteMaterials", "Home", FormMethod.Post))
+                            {
+
+                                               <input type="hidden" name="id" value="@material.Id"/>
+                                               <button class="button" type="submit">Usuń</button>
+                            }
+                                </li>
+                            </th>
+                        </tr>
+                    </table>
+
+        }
+    </ul>
+</div>

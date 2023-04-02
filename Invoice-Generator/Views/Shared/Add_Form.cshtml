@@ -1,0 +1,50 @@
+﻿@model Invoice_Generator.Models.Customer
+@{
+    ViewData["Title"] = "Add";
+}
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;900&display=swap" rel="stylesheet">
+<h3>Dodanie klienta</h3>
+
+<div class="pages-1">
+    @using (Html.BeginForm("Add", "Customer", FormMethod.Post))
+    {
+        @Html.ValidationSummary()
+
+
+                <table>
+                <tr>
+                    <th>
+                        <span>Imię Klienta: </span>@Html.TextBoxFor(x =>x.Name)
+                    </th>
+                    <th>
+                        <span>Nazwisko klienta: </span>@Html.TextBoxFor(x => x.Surname)
+                    </th>
+                    <th>
+                        <span>Numer telefonu: </span>@Html.TextBoxFor(x =>x.PhoneNumber)
+                    </th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <th>
+                        <span>Ulica: </span>@Html.TextBoxFor(x =>x.Address.Street)
+                    </th>
+                    <th>
+                        <span>Numer ulicy: </span>@Html.TextBoxFor(x =>x.Address.NumberOf)
+                    </th>
+                    <th>
+                        <span>Kod pocztowy: </span>@Html.TextBoxFor(x =>x.Address.PostCode)
+                    </th>
+                    <th>
+                        <span>Miasto: </span>@Html.TextBoxFor(x =>x.Address.City)
+                    </th>
+                </tr>
+                </table>
+                    <br/>
+                <button class="button-1" type="submit"> Wyślij formularz</button> 
+
+    }
+    <br/>
+    @Html.ActionLink("Search Customers in database","Search","Customer")
+    <p>Zapisane id klienta:</p><strong>@TempData["CustomerId"]</strong> 
+</div>
+

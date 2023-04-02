@@ -1,0 +1,10 @@
+*.vsidx
+*.dll
+bin/
+Migrations/
+obj/
+*vs*
+FakturaApp_1/wwwroot/lib/bootstrap/LICENSE
+*bootstrap*
+*dist/*
+*jquery*

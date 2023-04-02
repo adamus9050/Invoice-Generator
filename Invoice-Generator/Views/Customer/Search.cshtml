@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Invoice_Generator.Models.Customer>
+@{
+    ViewData["Title"] = "Search";
+}
+
+<h1>Wyszukiwarka</h1>
+@using (Html.BeginForm("Search", "Customer", FormMethod.Post))
+{
+                <input type="text" name="SearchString" />
+                <input type="submit" value="Filter" /> 
+
+                <h6>wpisz właściwość klienta</h6> 
+}
+
+<ul>     
+    @foreach (var customer in Model)
+    {
+            <li>
+            @customer.Name
+            @customer.Surname
+            @customer.PhoneNumber
+                <a href="@Url.Action("DetailsCustomer","Customer", new {Id =customer.Id})">Szczegóły</a>
+            </li>
+
+    }
+</ul>

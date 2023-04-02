@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Invoice_Generator.Models.Customer>
+@{
+    ViewData["Title"] = "CustomerList";
+}
+
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;900&display=swap" rel="stylesheet">
+
+<h3>Lista Klientów</h3>
+<div class="pages-1">
+    <ul>
+        @foreach (var lst in Model)
+        {
+                    <li>
+                @lst.Id -@lst.Name -@lst.Surname -@lst.PhoneNumber
+                        <a href="@Url.Action("DetailsCustomer","Customer", new {Id =lst.Id})">Szczegóły</a> 
+
+                @using (Html.BeginForm("DeleteCustomers", "Customer", FormMethod.Post))
+                {
+                                 <input type="hidden" name="id" value="@lst.Id"/>
+                                 <button class="button" type="submit">Usuń</button>
+                }
+                    </li> 
+        }
+    </ul>
+</div>
