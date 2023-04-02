@@ -6,20 +6,49 @@
 <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;900&display=swap" rel="stylesheet">
 
 <h3>Lista Klientów</h3>
+
+@using (Html.BeginForm("Search", "Customer", FormMethod.Post))
+{
+    <h6>wpisz właściwość klienta</h6> 
+  <input type="text" name="SearchString" />
+      <input  class="btn btn-outline-primary" type="submit" value="Filter" /> 
+}
+  <br/>
 <div class="pages-1">
     <ul>
         @foreach (var lst in Model)
         {
-                    <li>
-                @lst.Id -@lst.Name -@lst.Surname -@lst.PhoneNumber
-                        <a href="@Url.Action("DetailsCustomer","Customer", new {Id =lst.Id})">Szczegóły</a> 
 
-                @using (Html.BeginForm("DeleteCustomers", "Customer", FormMethod.Post))
-                {
-                                 <input type="hidden" name="id" value="@lst.Id"/>
-                                 <button class="button" type="submit">Usuń</button>
-                }
-                    </li> 
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Id</th>
+                      <th scope="col">Name</th>
+                      <th scope="col">Surname</th>
+                      <th scope="col">PhoneNumber</th>
+                          @*<th scope="col"> <a >Szczegóły</a></th>*@
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    <tr>
+                      <th scope="row">@lst.Id</th>
+                      <td>@lst.Name</td>
+                      <td>@lst.Surname</td>
+                      <td>@lst.PhoneNumber</td>
+                      <td><a href="@Url.Action("DetailsCustomer","Customer", new {Id =lst.Id})">Szczegóły</a></td>
+                      <td>
+                            @using (Html.BeginForm("DeleteCustomers", "Customer", FormMethod.Post))
+                            {
+                               <input type="hidden" name="id" value="@lst.Id"/>
+                                       <button class="btn btn-danger" type="submit">Usuń</button>
+                            }
+                      </td>
+                      </tr> 
+
+                  </tbody>
+
+                </table>
         }
     </ul>
 </div>

@@ -6,28 +6,45 @@
 <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;900&display=swap" rel="stylesheet">
 
 <h3>Lista materiałów</h3>
+@using (Html.BeginForm("SearchMaterials", "Home", FormMethod.Post))
+{
+  <input type="text" name="SearchString" />
+  <input type="submit" value="Filter" /> 
+
+  <h6>wpisz nazwe lub cene materiału</h6> 
+}
 <div class="page-1">
-    <ul>
         @foreach (Material material in Model)
         {
-                    <table>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Id</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Price</th>
+                </tr>
+              </thead>
 
+              <tbody>
+                <tr>
+                  <th scope="row">@material.Id</th>
+                  <td>@material.Name</td>
+                  <td>@material.Description</td>
+                  <td>@material.Price</td>
+                  <td>
+                        @using (Html.BeginForm("DeleteMaterials", "Home", FormMethod.Post))
+                        {
+                            <input type="hidden" name="id" value="@material.Id"/>
+                            <button class="btn btn-danger" type="submit">Usuń</button>
+                        }
+                  </td>
+                  </tr> 
 
-                        <tr>
-                            <th>
-                                <li class="page-list1">           
-                            @material.Id -@material.Name -@material.Description -@material.Price
-                            @using (Html.BeginForm("DeleteMaterials", "Home", FormMethod.Post))
-                            {
+              </tbody>
 
-                                               <input type="hidden" name="id" value="@material.Id"/>
-                                               <button class="button" type="submit">Usuń</button>
-                            }
-                                </li>
-                            </th>
-                        </tr>
-                    </table>
+            </table>
 
         }
-    </ul>
+
 </div>

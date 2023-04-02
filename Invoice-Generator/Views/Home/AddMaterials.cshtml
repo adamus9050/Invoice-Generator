@@ -4,8 +4,15 @@
 }
 <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;900&display=swap" rel="stylesheet">
 
-<div class="pages-1">
+<div class="g-3">
+    @using (Html.BeginForm("SearchMaterials", "Home", FormMethod.Post))
+    {
+                    <input type="text" name="SearchString" />
+                    <input class="btn btn-outline-primary" type="submit" value="Filter" /> 
 
+                        <h6>wpisz nazwe lub cene materiału</h6> 
+    }
+    <br/>
     @using (Html.BeginForm("AddMaterials", "Home", FormMethod.Post))
     {
         @Html.ValidationSummary()
@@ -24,7 +31,7 @@
             </table>
 
             <br/>
-            <button class="button-1" type="submit">Wyślij formularz</button>
+                <button class="btn btn-primary" type="submit">Wyślij formularz</button>
     }
         <p>Zapisane id materiału:</p><strong>@TempData["Materials"]</strong> 
 </div>
