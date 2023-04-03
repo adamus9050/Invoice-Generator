@@ -1,6 +1,6 @@
-﻿using Invoice_Generator.Models;
+﻿using Domain.Entities;
 
-namespace Invoice_Generator.Services.Interfaces
+namespace Domain.Services.Interfaces
 {
     public interface IDataBaseService
     {

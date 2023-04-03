@@ -1,4 +1,5 @@
-﻿using Invoice_Generator.Models;
+﻿using Domain.Entities.Identification;
+using Invoice_Generator.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 //using Microsoft.Win32;

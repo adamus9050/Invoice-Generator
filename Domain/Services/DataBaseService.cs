@@ -1,11 +1,13 @@
-﻿using Invoice_Generator.Models;
-using Invoice_Generator.Services.Interfaces;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using System.Data;
+using Domain.Entities;
+using Domain.Services.Interfaces;
 using System.Dynamic;
 using System.Net;
 
-namespace Invoice_Generator.Services
+
+
+namespace Domain.Services
 {
     public class DataBaseService : IDataBaseService
     {

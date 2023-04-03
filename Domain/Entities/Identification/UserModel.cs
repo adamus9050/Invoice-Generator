@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-namespace Invoice_Generator.Models
+namespace Domain.Entities.Identification
 {
     public class UserModel : IdentityUser
     {

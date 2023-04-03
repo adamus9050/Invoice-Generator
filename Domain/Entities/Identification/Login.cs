@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Invoice_Generator.Models
+namespace Domain.Entities.Identification
 {
     public class Login
     {

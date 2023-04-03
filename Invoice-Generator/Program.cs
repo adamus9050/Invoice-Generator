@@ -1,14 +1,11 @@
-//using Invoice_Generator;
-using Invoice_Generator.Services.Interfaces;
-using Invoice_Generator.Services;
 using Microsoft.EntityFrameworkCore;
 using Invoice_Generator.Controllers;
 using System;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using Invoice_Generator.Models;
-using Invoice_Generator;
+using Domain.Entities.Identification;
+using Domain.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 

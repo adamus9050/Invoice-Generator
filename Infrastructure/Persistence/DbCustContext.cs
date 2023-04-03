@@ -1,11 +1,10 @@
-﻿using Invoice_Generator.Models;
+﻿using Domain.Entities;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-
-namespace Invoice_Generator
+namespace Application.Persistence
 {
-    public class DbCustContext :  IdentityDbContext<UserModel> //DbContext 
+    public class DbCustContext : DbContext //IdentityDbContext<UserModel>  
     {
         public DbCustContext(DbContextOptions<DbCustContext> options) : base(options)
         {

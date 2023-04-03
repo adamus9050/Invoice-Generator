@@ -1,5 +1,5 @@
-﻿using Invoice_Generator.Models;
-using Invoice_Generator.Services.Interfaces;
+﻿using Domain.Entities;
+using Application.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Invoice_Generator.Controllers
