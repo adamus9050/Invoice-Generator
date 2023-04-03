@@ -4,10 +4,9 @@ using Domain.Entities;
 using Domain.Services.Interfaces;
 using System.Dynamic;
 using System.Net;
+using Infrastructure.Persistence;
 
-
-
-namespace Domain.Services
+namespace Infrastructure.Services
 {
     public class DataBaseService : IDataBaseService
     {

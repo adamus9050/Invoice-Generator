@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace Application.Persistence
+namespace Infrastructure.Persistence
 {
     public class DbCustContext : DbContext //IdentityDbContext<UserModel>  
     {
