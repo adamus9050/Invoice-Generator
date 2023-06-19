@@ -53,14 +53,25 @@ namespace Invoice_Generator.Services
 
         public int Save(Customer customer)
         {
-            _context.Customers.Add(customer);
-
-            if (_context.SaveChanges() > 0)
+            using var transaction = _context.Database.BeginTransaction();
+            try
             {
-                Console.WriteLine("Udało się dodać klienta");
-            };
+                _context.Customers.Add(customer);
 
-            return customer.Id;
+                if (_context.SaveChanges() > 0)
+                {
+                    Console.WriteLine("Udało się dodać klienta");
+                };
+
+                transaction.Commit();
+                return customer.Id;
+            }
+            catch(Exception ex)
+            {
+                transaction.Rollback();
+                return 0;
+            }
+
         }
         public string SaveMaterials(Material material)
         {

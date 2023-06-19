@@ -23,7 +23,7 @@ builder.Services.AddScoped<IDataBaseService, DataBaseService>();
 //});
 
 builder.Services.AddDbContext<DbCustContext>(options =>
-options.UseSqlServer(builder.Configuration.GetConnectionString("TwojaFaktura")));
+options.UseSqlServer(builder.Configuration.GetConnectionString("GeneratorFaktur")));
 
 void ConfigureServices(IServiceCollection services)
 {
